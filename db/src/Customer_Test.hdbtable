@@ -1,0 +1,5 @@
+COLUMN TABLE "Customer_Test" (
+id int ,
+name varchar(20),
+country VARCHAR(30)
+)
