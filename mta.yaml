@@ -1,16 +1,18 @@
-_schema-version: "2.1"
+_schema-version: '2.1'
 ID: hana_test
 version: 0.0.1
 modules:
-- name: db
-  type: hdb
-  path: db
-  requires:
-  - name: hdi_db
-    properties:
-      TARGET_CONTAINER: ~{hdi-container-name}
+  - name: db
+    type: hdb
+    path: db
+    requires:
+      - name: hdi_db
+
 resources:
-- name: hdi_db
-  type: com.sap.xs.hdi-container
-  properties:
-    hdi-container-name: ${service-name}
+  - name: hdi_db
+    type: com.sap.xs.hdi-container
+    parameters:
+        service-name: hana_test-hdidb-ws-4t8n6
+    properties:
+      hdi-container-name: ${service-name}
+
