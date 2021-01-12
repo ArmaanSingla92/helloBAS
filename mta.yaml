@@ -8,6 +8,26 @@ modules:
     requires:
       - name: hdi_db
 
+
+  - name: user_db
+    type: hdb
+    path: user_db
+    requires:
+     - name: hdi_user_db
+       properties:
+         TARGET_CONTAINER: ~{hdi-container-name_2}
+
+                           
+
+     - name: cross-container-service-1
+       group: SERVICE_REPLACEMENTS
+
+       properties:
+         key: ServiceName_1
+         service: ~{the-service-name}
+                           
+
+
 resources:
   - name: hdi_db
     type: com.sap.xs.hdi-container
@@ -15,4 +35,20 @@ resources:
         service-name: hana_test-hdidb-ws-4t8n6
     properties:
       hdi-container-name: ${service-name}
+
+
+  - name: hdi_user_db
+    type: com.sap.xs.hdi-container
+    parameters:
+        service-name: HANA_TEST-hdidb-ws-lkz7j
+    properties:
+       hdi-container-name_2: ${service-name}
+
+
+  - name: cross-container-service-1
+    parameters:
+       service-name: hana_test-hdidb-ws-4t8n6
+    properties:
+       the-service-name: ${service-name}
+    type: org.cloudfoundry.existing-service
 

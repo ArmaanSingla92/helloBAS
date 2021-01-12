@@ -1,0 +1,8 @@
+{
+  "helloBAS.user_db::Customer_Test": {
+    "target": {
+      "object": "Customer_Test",
+      "schema.configure": "hana_test-hdidb-ws-4t8n6/schema"
+    }
+  }
+}

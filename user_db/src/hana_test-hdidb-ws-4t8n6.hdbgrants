@@ -1,0 +1,14 @@
+{
+  "hana_test-hdidb-ws-4t8n6": {
+    "object_owner": {
+      "container_roles": [
+        "Role_R1"
+      ]
+    },
+    "application_user": {
+      "container_roles": [
+        "Role_R1"
+      ]
+    }
+  }
+}
